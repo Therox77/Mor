@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ti, Mi Amor ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            overflow: hidden;
+            color: #4a4a4a;
+            text-align: center;
+            position: relative;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
+            animation: fadeIn 2s ease-in-out;
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #ff6f61;
+            animation: glow 1.5s infinite alternate;
+        }
+        p {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeText 2s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes fadeText {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes glow {
+            from { text-shadow: 0px 0px 10px rgba(255, 105, 97, 0.7); }
+            to { text-shadow: 0px 0px 20px rgba(255, 105, 97, 1); }
+        }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            position: relative;
+        }
+        .btn {
+            padding: 12px 25px;
+            font-size: 1.2em;
+            border: none;
+            background: #ffb6b9;
+            color: white;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+            animation: heartbeat 1.5s infinite;
+        }
+        .btn:hover {
+            background: #ff6f61;
+            transform: scale(1.1);
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .falling-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: red;
+            clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 75%, 20% 100%, 0% 35%);
+            opacity: 0.7;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            from { transform: translateY(-10vh); opacity: 1; }
+            to { transform: translateY(100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio HTML5.
+    </audio>
+    <div class="falling-hearts"></div>
+    <div class="container">
+        <h1>Para Ti, de mi ❤️</h1>
+        <p>“Eres la historia que quiero escribir con cada latido de mi corazón, mi pensamiento más bonito y el sueño que anhelo hacer realidad. Me gustaría ser parte de tu vida de una manera especial, así como deseo que tú formes parte de la mía. Juntos, podríamos escribir una nueva historia, una que solo nosotros podamos contar. Te propongo una equivalencia de intercambio: te entrego la mitad de mi vida, si tú me entregas la mitad de la tuya, y así construiremos un destino compartido.”</p>
+        <h1>¿Te gustaría unir nuestras almas y escribir una historia nueva?</h1>
+        <div class="btn-container">
+            <a href="https://www.youtube.com/watch?v=xqpeVnqldeM" class="btn">Sí ❤️</a>
+            <a href="https://www.youtube.com/watch?v=hhNupmqg8H8" class="btn">No :(</a>
+        </div>
+    </div>
+    <script>
+        function createHearts() {
+            const heartContainer = document.querySelector('.falling-hearts');
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                heartContainer.appendChild(heart);
+                setTimeout(() => heart.remove(), 5000);
+            }
+        }
+        setInterval(createHearts, 1000);
+    </script>
+</body>
+</html>
